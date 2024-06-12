@@ -6,7 +6,7 @@ app.use(cors());
 app.use(express.json());
 
 app.get("/message", (req, res) => {
-  res.json({ message: "This is React With NodePooja" });
+  res.json({ message: "This is React With Node" });
 });
 
 app.listen(8000, () => {

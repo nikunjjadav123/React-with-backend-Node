@@ -1,14 +1,18 @@
-const express = require("express");
-const cors = require("cors");
-const app = express();
+import { createConnection } from 'mysql';
 
-app.use(cors());
-app.use(express.json());
-
-app.get("/message", (req, res) => {
-  res.json({ message: "This is React With Node" });
+const connection = createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'zara'
 });
 
-app.listen(8000, () => {
-  console.log(`Server is running on port 8000.`);
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL: ' + err.stack);
+    return;
+  }
+
+  console.log('Connected to MySQL as ID ' + connection.threadId);
 });
+
